@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Demo Small Size Games</title>
+<meta name="Games" content="width=device-width, user-scalable=false">
+
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="css/common.css" type="text/css">
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/custom_small.js"></script>
+<script>
+$(document).ready(function(e) {
+    var screenWidth = $(document).width();
+	
+	//console.log(screenWidth);
+	if(screenWidth > 500){
+		window.location.href ="game.html";
+	}
+});	
+		
+</script>
+</head>
+<body>
+
+<div style="" id="wrapper">
+<div style="" id="gameArea">
+<canvas id="canvasOne"> Your browser does not support the HTML 5 Canvas. </canvas>
+<div style="" id="bud_red"><img src="images/bud_red.png" width="100%"></div>
+</div>
+
+</div>
+<div class="time_level">
+<div class="time">TIME: <span id="time">0</span></div>
+<div class="level">Level: <span id="speed">0</span></div></div>
+	<form name="front_game" id="front_game" action="login.php" method="post">
+  	<input type="hidden" name="bcakfilename" id="bcakfilename" />
+     <input type="hidden" name="playedTime" id="playedTime"/>
+     <input type="hidden" name="playedLevel" id="playedLevel" />
+  	<input type="hidden" name="come_from" id="come_from" value="small" />
+  </form>
+<div class="footer">
+<ul>
+<li>Copyright</li>
+<li>|</li>
+<li><a href="javascript:void(0);">Terms &amp; Conditions</a></li>
+</ul>
+
+</div>
+
+</body>
+</html>
