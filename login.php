@@ -1,18 +1,3 @@
-<!--
-find detail of global share on addthis.com
-start here->
-Your_pubid	=	'ra-53158d21496ca2cd'
-What were my top shared urls?
-https://api.addthis.com/analytics/1.0/pub/shares/url.csv?pubid=YOUR_PUBID
-How many times was my content shared, by day, over the last week?
-https://api.addthis.com/analytics/1.0/pub/shares/day.csv?period=week&pubid=YOUR_PUBID
-How many users shared my content this month, broken down by their interests?
-https://api.addthis.com/analytics/1.0/pub/sharers/interest.csv?period=month&pubid=YOUR_PUBID
-Which sharing services sent the most clicks back to my site this week?
-https://api.addthis.com/analytics/1.0/pub/clicks/service.csv?period=week&pubid=YOUR_PUBID
-
-<!-- AddThis Button END -->
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,11 +6,20 @@ https://api.addthis.com/analytics/1.0/pub/clicks/service.csv?period=week&pubid=Y
 <link rel="stylesheet" type="text/css" href="css/style.css" />
 <link rel="stylesheet" href="css/common.css" type="text/css">
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-<script type="text/javascript" src="js/placeholder.js"></script>
+
 <script type="text/javascript" src="js/processingdemo.js"></script>
 <script>
 	$(document).ready(function(e) {
-        $.fn.placeholder();
+		
+		$("#txtusername").keyup(function(){
+			var username=$(this).val();
+			console.log(username);
+			$("#txtscreenname").val(username.substr(0, 6));
+			
+		});
+		
+		
+       // $.fn.placeholder();
 		<?php if(isset($_COOKIE["user_screen_name"]))
 				{ ?>
 					//alert("hi");
@@ -318,18 +312,18 @@ $come_from		=	$_POST['come_from'];
       </div>
     </div>
     <div class="padd">
-      <p class="white">Just enter your details below and click 'Register' All your 
-        details are kept 100% Confidential & Private</p>
+      <p class="white">To Start the game, you required to enter your name. </p>
          <span class="error_class"></span>
       <form name="game_regis_form" id="game_regis_form" method="post">
       	<br />
         <input class="marb10" type="text" placeholder="Name" name="txtusername" id="txtusername" />
         <br />
-        <input class="marb10" type="text" placeholder="Email Address" name="txtemailaddress" id="txtemailaddress" />
+        <input class="marb10" type="text" value="test@gmail.com" placeholder="Email Address" name="txtemailaddress" id="txtemailaddress" />
         <br />
         <input class="marb10" type="text" placeholder="Screen Name (up to 6 characters)" name="txtscreenname" id="txtscreenname" onkeyup="return countChar(txtscreenname);" />
         <br />
-        <a class="redbt mart18 f25 white w172 padtb5" href="javascript:void(0);" id="submitform">Register</a>
+        <a class="redbt mart18 f25 white w172 padtb5" 
+		href="javascript:void(0);" id="submitform">Register</a>
       </form>
     </div>
   </div>
@@ -360,16 +354,8 @@ $come_from		=	$_POST['come_from'];
       <p><a href="javascript:void(0);" id="playagain_btn"><img src="images/btn_palyagain.png" width="174" height="43" /></a></p>
       <p><a href="javascript:void(0);" class="clear_user" id="clearuser_btn12">Clear User</a></p>
       <p><a href="javascript:void(0);" class="clear_user" id="leaderboard_btn12">Leader Board</a></p>
-	  <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53158d21496ca2cd"></script>
+	  
+
       </div>
      </div>
  	 </div> 

@@ -28,9 +28,9 @@ function getRecordgames($condition)
 		//
 		if($rowcount > 0)
 			{
-				for($i=0;$i<$rowcount;$i++)
+				for($i=1;$i<$rowcount;$i++)
 					{	
-						$counter	=	$i+1;
+						$counter	=	$i;
 						$inseteddate	=	date('d - M - Y H :i :s a',strtotime($allmobileRecords[$i]['inserted_date']));				
 						$HTML.='<tr>';
 						/*$HTML.='<td>'.$allmobileRecords[$i]['id'].'</td>';*/
@@ -76,7 +76,7 @@ function getleaderboard()
 		$testclass	=	new AllTables();	
 		   //$sqlQuery	=	"select a.name,a.inserted_date,b.user_id,b.played_time from users a inner join playagain_rec b on a.id=b.user_id group by(b.user_id)order by played_time desc limit 0,10";
 		   
-		  $sqlQuery	=	" SELECT user_id,played_time,name,inserted_date FROM playagain_rec a inner join users b on a.user_id=b.id order by played_time desc limit 0,10";
+		  $sqlQuery	=	" SELECT user_id,played_time,name,screen_name,inserted_date FROM playagain_rec a inner join users b on a.user_id=b.id order by played_time desc,b.id desc limit 0,10";
 		return	$testclass->getInfo('',$sqlQuery);
 		
 	}

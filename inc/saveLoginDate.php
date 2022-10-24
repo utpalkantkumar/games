@@ -14,20 +14,23 @@ if($txtemailaddress >'')
 		$contactData['name']			=	$txtusername;
 		$contactData['email_id']		=	$txtemailaddress;
 		$contactData['screen_name']		=	$txtscreenname;
-		//$contactData['usr_playedTime']	=	$playedTime;
-		//$contactData['usr_playedLevel']	=	$playedLevel;
+		$contactData['usr_playedTime']	=	$playedTime;
+		$contactData['usr_playedLevel']	=	$playedLevel;
 		$contactData['come_from']		=	$come_from;
 		$contactData['ip']				=	$_SERVER["REMOTE_ADDR"];
 		$contactData['inserted_date']	=	date("Y-m-d h:i:s");
 		$contactData['status']			=	1;
 		$tableName						=	'users';
 		$addrecord_contact				=	$testclass->AddInfo($contactData,$tableName);
+		
+		
 		if($addrecord_contact)
 			{
 				
-				$sqlQuery="Select id from users where email_id='$txtemailaddress' order by id desc limit 0,1";
+				 $sqlQuery="Select id from users where email_id='$txtemailaddress' order by id desc limit 0,1";
 				$getuserDetails	=	$testclass->getInfo('',$sqlQuery);
-				$userId	=	$getuserDetails[0]['id'];
+				//print_r($getuserDetails);
+				$userId	=	$getuserDetails[1]['id'];
 				
 				
 				//add record in playng rec

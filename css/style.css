@@ -1,7 +1,7 @@
 @charset "utf-8";
 /* CSS Document */
 
-body{ margin:0px; padding:0px; background:url(../images/bg.jpg) repeat top center; background-size:cover; font-family:Verdana, Geneva, sans-serif;}
+body{ margin:0px; padding:0px; background:url(../images/new/bg.png) repeat top center; background-size:cover; font-family:Verdana, Geneva, sans-serif;}
 #gameArea {
  
 /* left:   50%;
@@ -18,7 +18,7 @@ body{ margin:0px; padding:0px; background:url(../images/bg.jpg) repeat top cente
   border-radius:18px;
   position:absolute; top:0px; left:0px;
   z-index:2;
-  /*cursor:none;*/
+  cursor:pointer;
 }
 
 #canvasBg {
@@ -71,17 +71,17 @@ input[type=text]{ font-size:17px; width:480px; border-radius:10px; background-co
 .mart18{ margin-top:18px;}
 .f25{ font-size:25px;}
 /*popup2*/
-.bg{ background:url(../images/bg.png) repeat; /*width:612px;*/ border-radius:20px; padding:36px 45px 35px 45px; }
+.bg{background: #ffffffab;/*width:612px;*/border-radius:20px;padding:36px 45px 35px 45px;}
 .logo{ text-align:center; margin-bottom:40px;}
 .marb36{ margin-bottom:36px;}
-.a_bg{ background-color:#000; border-radius:15px; margin:0 auto; padding:4px 0px;}
-.a_bg a{ display:block; font-size:18px; font-weight:bold; color:#fff; text-align:center;}
+.a_bg{  border-radius:15px; margin:0 auto; padding:4px 0px;}
+.a_bg a{ display:block; font-size:18px; font-weight:bold; color:#000; text-align:center;}
 .w324{ width:324px;}
 /*.gamedetails{ position:absolute;}*/
-.gamedetails p{ font-size:14px; color:#fff; text-align:center;}
+.gamedetails p{font-size: 16px;color: #000;text-align:center;font-weight: bold;line-height: 24px;}
 .w610{ width:610px;}
 .w156{ width:156px;}
-.steps{ text-align:center; font-size:14px; color:#fff;}
+.steps{text-align:center;font-size: 16px;color: #f00;}
 .steps img{vertical-align:middle; padding-right:10px;}
 .marb20{ margin-bottom:20px;}
 .marb40{ margin-bottom:40px;}

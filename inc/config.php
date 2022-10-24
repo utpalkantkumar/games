@@ -2,8 +2,8 @@
 //data base detail
 define( 'DB_HOST', 'localhost');
 
-define( 'DB_USER', 'RemoteAccess');
-define( 'DB_PASS', 'uwTxeyXb6SvDDM9j');
+define( 'DB_USER', 'root');
+define( 'DB_PASS', 'root');
 define( 'DB_NAME', 'u_games');
 
 define( 'DB_TYPE', 'mysql');
@@ -23,30 +23,34 @@ class dbopenconn
 		
 		function dbconnect()
 		{
-			$connect = @mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("could not connect to server");
+			/* $connect = @mysqli_connect(DB_HOST, DB_USER, DB_PASS) or die("could not connect to server");
 			
 			$this->connection = $connect;
 			
 			// Selecting the Database for use 
-			$db_select = @mysql_select_db(DB_NAME) or die("could not select the database"); 
-		
-			$this->db = $db_select;
+			$db_select = @mysqli_select_db(DB_NAME) or die("could not select the database");  */
+		$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+		// Check connection
+		if ($conn->connect_error) {
+			die("Connection failed: " . $conn->connect_error);
+		}
+			$this->db = $conn;
 		}
 	function insert_query($sqltext,$print="")
 		{
 			$query = $sqltext;
-			$result = ($print == "")?mysql_query($query):$query;
+			$result = ($print == "")?mysqli_query($this->db,$query):$query;
 			return $result;
 		}
 	function select_query($sqltext,$print="")
 		{
 			$query = $sqltext;
-			$result = ($print == "")?mysql_query($query):$query;
+			$result = ($print == "")?mysqli_query($this->db,$query):$query;
 			return $result;	
 		}
 		function numRows($result)
 		{
-			$rows = @mysql_num_rows($result);
+			$rows = @mysqli_num_rows($result);
 			if ($rows === null) 
 			{
 				return $this->mysqlRaiseError();
@@ -90,6 +94,7 @@ class dbopenconn
 		}
 	function getInfo($KeyID='',$sql='',$debugquery='',$fields='*',$tablename='',$KeyFieldName='')
 		{
+			$compstr[] =array();
 			if (($KeyID!="")&&($tablename!=""))
 			{
 				$sqltext = "Select $fields from $tablename where $KeyFieldName='".$KeyID."'";
@@ -108,14 +113,14 @@ class dbopenconn
 			}
 			if ($numrows ==1)
 			{
-				while ($companylist = mysql_fetch_assoc($companies))
+				while ($companylist = mysqli_fetch_assoc($companies))
 				{
 					$compstr[] = $companylist;
 				}	
 			}
 			else if($numrows > 1)
 			{
-				while ($companylist = mysql_fetch_assoc($companies))
+				while ($companylist = mysqli_fetch_assoc($companies))
 				{
 					$compstr[] = $companylist;
 				}

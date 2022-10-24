@@ -18,7 +18,7 @@ if($mainuserid_win > '')
 		 
 				  $sqlQuery="Select max(played_time) as wintime from playagain_rec where user_id='$mainuserid_win'";
 				 $getWinTimeDetails	=	$testclass->getInfo('',$sqlQuery);
-						$userMaxTime	=	$getWinTimeDetails[0]['wintime'];	
+						$userMaxTime	=	$getWinTimeDetails[1]['wintime'];	
 						if($userMaxTime > $playedTime_win)
 							{
 								echo '&nbsp;&nbsp;&nbsp;('.$userMaxTime.'&nbsp;Seconds )';	

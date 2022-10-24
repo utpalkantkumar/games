@@ -58,7 +58,7 @@ function sendmail()
 	}
 </script>
 
-<div class="come_from"><?php echo $userdetails[0]['screen_name']?>,
+<div class="come_from"><?php echo $userdetails[1]['screen_name']?>,
 &nbsp;Total Played Time <?php echo $totalplayedTimes?>
 <form>
 <input type="hidden" id="scoreid" name="scoreid" value="<?php echo $userid?>" />
@@ -99,10 +99,10 @@ function sendmail()
 			<?php
 			if($scoredetails)
 				{
-					for($i=0;$i<$numbrsOfDetails;$i++)
+					for($i=1;$i<$numbrsOfDetails;$i++)
 						{ ?>
 						<tr>
-						<td><?php echo $i+1?></td>
+						<td><?php echo $i?></td>
 						<td><?php echo $scoredetails[$i]['played_time']?></td>
 						</tr>
 				
